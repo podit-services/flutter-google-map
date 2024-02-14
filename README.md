@@ -1,17 +1,55 @@
-# google_map_demo
+# Flutter Google Map
 
-A new Flutter project.
+A simple flutter app which uses google map to show user location.
 
-## Getting Started
+## Build Steps
 
-This project is a starting point for a Flutter application.
+### Android
 
-A few resources to get you started if this is your first Flutter project:
+1. Set the `minSdkVersion` in `android/app/build.gradle`:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+   ```
+   android {
+       defaultConfig {
+           minSdkVersion 20
+       }
+   }
+   ```
+2. Specify your API key in the application manifest `android/app/src/main/AndroidManifest.xml`:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Flutter-Google-Maps
+   ```
+   <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR KEY HERE"/>
+   ```
+3. Create .env file and add your key
+
+   ```
+   GOOGLE_MAP_API_KEY="YOUR KEY HERE"
+   ```
+
+### iOS
+
+* To set up, specify  your API key in the application delegate `ios/Runner/AppDelegate.swift` :
+
+```
+import UIKit
+import Flutter
+import GoogleMaps
+
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GMSServices.provideAPIKey("YOUR KEY HERE")
+    GeneratedPluginRegistrant.register(with: self)
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+}
+```
+
+## Features
+
+* Show user location on the map.
+* Demonstrate google maps autocomplete functionality.
+* Display path between two location.

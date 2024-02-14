@@ -68,8 +68,8 @@ class HomeScreen extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const PolylineScreen(
-                    origin: LatLng(28.6123975, 77.3566977),
-                    destination: LatLng(28.5966638, 77.2972381),
+                    origin: LatLng(28.6124766, 77.3591061),
+                    destination: LatLng(28.7066554, 77.4224129),
                   ),
                 ),
               );
